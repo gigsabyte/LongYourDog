@@ -14,7 +14,7 @@ To clone this project:
     interaction-prototype     (Jack)
     movement-prototype        (Seiji)
   
-### Only work on your respective unity scene!
+### Only work on your respective unity scene and branch!
 
     LevelGeometryTestbed (Erwang)
     InteractionMechnicsTestbed (Jack)
