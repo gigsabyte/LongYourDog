@@ -4,21 +4,21 @@
 
 To clone this project:
 
-  git clone https://github.com/SeijiEmery/LongYourDog.git
-  cd LongYourDog
-  git checkout <your-branch>
+    git clone https://github.com/SeijiEmery/LongYourDog.git
+    cd LongYourDog
+    git checkout <your-branch>
   
 ### Active dev branches:
 
-  level-geometry-prototype  (Erwang)
-  interaction-prototype     (Jack)
-  movement-prototype        (Seiji)
+    level-geometry-prototype  (Erwang)
+    interaction-prototype     (Jack)
+    movement-prototype        (Seiji)
   
 ### Only work on your respective unity scene!
 
-  LevelGeometryTestbed (Erwang)
-  InteractionMechnicsTestbed (Jack)
-  MovementTestbed (Seiji)
+    LevelGeometryTestbed (Erwang)
+    InteractionMechnicsTestbed (Jack)
+    MovementTestbed (Seiji)
   
 Any work in any other scene WILL be nuked when we merge.
 
