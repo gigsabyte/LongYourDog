@@ -24,6 +24,7 @@ public class LongDogController : MonoBehaviour {
     public void Update() {
         // get current list of active gamepads
         var gamepads = Gamepad.all;
+        numGamepads = gamepads.Count;
         
         // update our gamepad <-> game agent mappings
         // (ie. if a controller is detected or removed; try to handle this semi-intelligently)
@@ -32,15 +33,15 @@ public class LongDogController : MonoBehaviour {
         // fire off gamepad input from every active gamepad to every mapped player agent
         // does so by calling methods defined on IPlayerAgent, which are implemented
         // by LongDogPlayerController.
-        for (int i = 0; i < gamepads.Count; ++i) {
-            var agent = controlMapper.GetAgentForGamepad(i);
-            agent.Move(gamepads[i].leftStick.ReadValue(), moveForce);
+        for (var i = 0; i < gamepads.Count; ++i) {
+            IPlayerAgent agent = controlMapper.GetAgentForGamepad(i);
+            agent?.Move(gamepads[i].leftStick.ReadValue(), moveForce);
         }
     }
     
     // Handles local coop gamepad remapping / hotswapping (hopefully, anyways...)
-    private struct LocalMultiplayerGamepadMapper<T> {
-        private Dictionary<int, GamepadMapping> mappedGamepadIds;
+    private struct LocalMultiplayerGamepadMapper<T> where T : IPlayerAgent {
+        private Dictionary<int, GamepadMapping> mappings;
         private T[] agents;
         private int generation;
         private struct GamepadMapping {
@@ -57,21 +58,13 @@ public class LongDogController : MonoBehaviour {
         public LocalMultiplayerGamepadMapper(T[] agents) {
             this.agents = agents;
             this.generation = 0;
-            this.mappedGamepadIds = new Dictionary<int, GamepadMapping>();
+            this.mappings = new Dictionary<int, GamepadMapping>();
         }
         public void UpdateMappings(ReadOnlyArray<Gamepad> gamepads) {
             
         }
         public T GetAgentForGamepad(int gamepad) {
-            
-        }
-
-        public void UpdateAndDispatchAllGamepadActions() {
-            var gamepads = Gamepad.all;
-            UpdateMappings(gamepads);
-            for (int i = 0; i < gamepads.Count; ++i) {
-                GetAgentForGamepad(i).
-            }
+            return mappings.TryGetValue(gamepad, out var mapping) ? mapping.agent : default(T);
         }
     }
 }
