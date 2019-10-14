@@ -14,6 +14,6 @@ public class SpeedPad : MonoBehaviour{
     }
 
     private void OnTriggerEnter(Collider other) {
-        other.attachedRigidbody.AddForce(0f, 0f, 200f);
+        other.attachedRigidbody.AddForce(0f, 0f, 300f);
     }
 }
