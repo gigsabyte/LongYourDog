@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 // Represents a head (or tail?) of the dog
@@ -15,5 +16,11 @@ public class LongDogPlayerController : MonoBehaviour, IPlayerAgent {
     public void Move(Vector2 movement, float moveForce) {
         rigidbody.AddForce(new Vector3(movement.x, 0, movement.y) * Time.deltaTime * moveForce,
             ForceMode.Acceleration);
+    }
+
+    public void OnPlayerAdded(Gamepad gamepad) {
+    }
+
+    public void OnPlayerRemoved(Gamepad gamepad) {
     }
 }
