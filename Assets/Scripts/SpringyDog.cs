@@ -47,13 +47,11 @@ public class SpringyDog : MonoBehaviour {
     public float playerMoveSpeed = 10.0f;
 
     void applyPlayerInputs() {
-        Debug.Log(""+Gamepad.all.Count+" gamepad(s) connected");
+//        Debug.Log(""+Gamepad.all.Count+" gamepad(s) connected");
         
         applyPlayerInput(heads[firstPlayerIndex % heads.Length], 
             new Vector2(Keyboard.current.dKey.ReadValue() - Keyboard.current.aKey.ReadValue(),
                 Keyboard.current.wKey.ReadValue() - Keyboard.current.sKey.ReadValue()));
-        
-        Input.
         
         for (int i = 0; i < Gamepad.all.Count; ++i) {
             int j = (firstPlayerIndex + i) % heads.Length;
