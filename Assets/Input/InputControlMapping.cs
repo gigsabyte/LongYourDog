@@ -63,7 +63,7 @@ public class InputControlMapping : IInputActionCollection
                 {
                     ""name"": ""down"",
                     ""id"": ""ee12d544-57b6-40ab-a38c-fedbb6b51008"",
-                    ""path"": ""<Joystick>/stick/down"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

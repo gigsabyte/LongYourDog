@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 68319789}
   m_Layer: 0
   m_Name: DogHead
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -221,11 +221,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 68319783}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88ec0b98d36442aea7ff2814ef9267bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasPlayerAssigned: 0
+  playerId: 0
 --- !u!54 &68319789
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -341,7 +343,7 @@ GameObject:
   - component: {fileID: 511135757}
   m_Layer: 0
   m_Name: DogHead
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -367,11 +369,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 511135751}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88ec0b98d36442aea7ff2814ef9267bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasPlayerAssigned: 0
+  playerId: 0
 --- !u!65 &511135754
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -834,7 +838,7 @@ MonoBehaviour:
   numSegments: 10
   springForce: 100
   springDamp: 0.2
-  spawnSprings: 0
+  spawnSprings: 1
   playerMoveForce: 100
   playerMoveSpeed: 10
 --- !u!1 &1965020955
