@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 // Responsible for routing input to a 'pawn', ie. an actual player character, which has a LongDogPlayerController
 // attached, and handles connecting / disconnecting to that pawn via TryAssignPlayer() and UnassignPlayer().
 //
-public class PlayerControllerProxy : MonoBehaviour {
+public class MultiplayerControllerProxy : PlayerControlsAdapter {
     private bool wasActive = false;
     public LongDogPlayerController pawn = null;
     public void ActivateControls() {
@@ -42,12 +42,6 @@ public class PlayerControllerProxy : MonoBehaviour {
             var input = value.Get<Vector2>();
             pawn.Move(input, 100.0f);
         }
-
-//        Debug.Log("got movement!"+value+": "+input);
-//        transform.Translate(
-//            new Vector3(
-//                input.x, 0.0f, input.y
-//        ) * Time.deltaTime * 2.0f);
     }
 
     public void OnJump(InputValue value) {

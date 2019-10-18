@@ -46,14 +46,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "CameraMovementMouseActive",
-                    "type": "Button",
-                    "id": "25a51ea8-56c0-4c6f-b48a-22b8e3a9894f",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Interact",
                     "type": "Button",
                     "id": "9d5bf2f8-40c7-464a-a042-a3bd5c992c18",
@@ -241,17 +233,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "CameraMovementMouse",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "905a62a7-7eec-4db1-b051-70816342ce2d",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CameraMovementMouseActive",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

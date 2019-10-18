@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Input/InputControlMapping.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Input/Mappings/InputControlMapping.inputactions'
 
 using System.Collections;
 using System.Collections.Generic;
@@ -54,14 +54,6 @@ public class InputControlMapping : IInputActionCollection
                     ""type"": ""Button"",
                     ""id"": ""ae9a22ef-178f-4a51-886e-db1b246aedca"",
                     ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""CameraMovementMouseActive"",
-                    ""type"": ""Button"",
-                    ""id"": ""25a51ea8-56c0-4c6f-b48a-22b8e3a9894f"",
-                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -258,17 +250,6 @@ public class InputControlMapping : IInputActionCollection
                 },
                 {
                     ""name"": """",
-                    ""id"": ""905a62a7-7eec-4db1-b051-70816342ce2d"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CameraMovementMouseActive"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""3399ff20-68f0-41d4-872a-fb712373af0d"",
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
@@ -378,7 +359,6 @@ public class InputControlMapping : IInputActionCollection
         m_Movement_Grab = m_Movement.FindAction("Grab", throwIfNotFound: true);
         m_Movement_CameraMovement = m_Movement.FindAction("CameraMovement", throwIfNotFound: true);
         m_Movement_CameraMovementMouse = m_Movement.FindAction("CameraMovementMouse", throwIfNotFound: true);
-        m_Movement_CameraMovementMouseActive = m_Movement.FindAction("CameraMovementMouseActive", throwIfNotFound: true);
         m_Movement_Interact = m_Movement.FindAction("Interact", throwIfNotFound: true);
         m_Movement_Cancel = m_Movement.FindAction("Cancel", throwIfNotFound: true);
         m_Movement_OpenMenu = m_Movement.FindAction("OpenMenu", throwIfNotFound: true);
@@ -436,7 +416,6 @@ public class InputControlMapping : IInputActionCollection
     private readonly InputAction m_Movement_Grab;
     private readonly InputAction m_Movement_CameraMovement;
     private readonly InputAction m_Movement_CameraMovementMouse;
-    private readonly InputAction m_Movement_CameraMovementMouseActive;
     private readonly InputAction m_Movement_Interact;
     private readonly InputAction m_Movement_Cancel;
     private readonly InputAction m_Movement_OpenMenu;
@@ -449,7 +428,6 @@ public class InputControlMapping : IInputActionCollection
         public InputAction @Grab => m_Wrapper.m_Movement_Grab;
         public InputAction @CameraMovement => m_Wrapper.m_Movement_CameraMovement;
         public InputAction @CameraMovementMouse => m_Wrapper.m_Movement_CameraMovementMouse;
-        public InputAction @CameraMovementMouseActive => m_Wrapper.m_Movement_CameraMovementMouseActive;
         public InputAction @Interact => m_Wrapper.m_Movement_Interact;
         public InputAction @Cancel => m_Wrapper.m_Movement_Cancel;
         public InputAction @OpenMenu => m_Wrapper.m_Movement_OpenMenu;
@@ -477,9 +455,6 @@ public class InputControlMapping : IInputActionCollection
                 CameraMovementMouse.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnCameraMovementMouse;
                 CameraMovementMouse.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnCameraMovementMouse;
                 CameraMovementMouse.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnCameraMovementMouse;
-                CameraMovementMouseActive.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnCameraMovementMouseActive;
-                CameraMovementMouseActive.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnCameraMovementMouseActive;
-                CameraMovementMouseActive.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnCameraMovementMouseActive;
                 Interact.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnInteract;
                 Interact.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnInteract;
                 Interact.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnInteract;
@@ -508,9 +483,6 @@ public class InputControlMapping : IInputActionCollection
                 CameraMovementMouse.started += instance.OnCameraMovementMouse;
                 CameraMovementMouse.performed += instance.OnCameraMovementMouse;
                 CameraMovementMouse.canceled += instance.OnCameraMovementMouse;
-                CameraMovementMouseActive.started += instance.OnCameraMovementMouseActive;
-                CameraMovementMouseActive.performed += instance.OnCameraMovementMouseActive;
-                CameraMovementMouseActive.canceled += instance.OnCameraMovementMouseActive;
                 Interact.started += instance.OnInteract;
                 Interact.performed += instance.OnInteract;
                 Interact.canceled += instance.OnInteract;
@@ -531,7 +503,6 @@ public class InputControlMapping : IInputActionCollection
         void OnGrab(InputAction.CallbackContext context);
         void OnCameraMovement(InputAction.CallbackContext context);
         void OnCameraMovementMouse(InputAction.CallbackContext context);
-        void OnCameraMovementMouseActive(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
         void OnOpenMenu(InputAction.CallbackContext context);
