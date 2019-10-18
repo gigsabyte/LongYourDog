@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7506602983797391433}
   - component: {fileID: 7506602983797391430}
-  - component: {fileID: -5872502526208006815}
+  - component: {fileID: -236970368194886622}
   m_Layer: 0
-  m_Name: PlayerInputController
+  m_Name: MultiplayerControllerProxy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_DefaultActionMap: 100962aa-7052-4acf-bc48-0133d25b4328
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &-5872502526208006815
+--- !u!114 &-236970368194886622
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -69,6 +69,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7506602983797391432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23d7ee258adc440f88574075de26b2d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b59d4efe83374bbebc8689c88407af0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraMovementMouseButton: 0

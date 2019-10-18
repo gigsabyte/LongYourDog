@@ -38,12 +38,4 @@ public interface IPlayerController {
     // (gamepad: start (or select?) button)
     // (keyboard: esc key)
     void OnMenuButtonPressed();
-    
-    // mouse / keyboard only: if we want camera to only move when left mouse button down
-    // called when left(?) mouse button pressed
-    void CameraDragButtonDown();
-
-    // mouse / keyboard only: if we want camera to only move when left mouse button down
-    // called when left(?) mouse button up
-    void CameraDragButtonUp();
 }

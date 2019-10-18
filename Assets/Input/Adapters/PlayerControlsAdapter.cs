@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 // Building block for MultiplayerControllerProxy; can also be used directly.
 // Methods get called via eg. SendMessages from a PlayerInput script.
 public class PlayerControlsAdapter : MonoBehaviour {
+    [SerializeField]
     public IPlayerController target = null;
     public enum MouseButton {
         Left,
