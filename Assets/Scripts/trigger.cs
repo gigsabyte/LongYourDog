@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FallingObj : MonoBehaviour{
+public class trigger : MonoBehaviour{
 
     private Rigidbody ball;
     private bool steppedon = false;

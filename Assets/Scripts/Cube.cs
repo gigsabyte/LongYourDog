@@ -30,7 +30,7 @@ public class Cube : MonoBehaviour{
     }
 
     private void OnCollisionEnter(Collision collision) {
-        collision.gameObject.CompareTag("Plane");
+       // collision.gameObject.CompareTag("Plane");
         collision.gameObject.CompareTag("SpeedPad");
         inair = false;
     }
