@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInputController : MonoBehaviour {
+// Spawned on a prefab (PlayerInputController) when a gamepad / input device is connected (and player presses a button)
+// Responsible for routing input to a 'pawn', ie. an actual player character, which has a LongDogPlayerController
+// attached, and handles connecting / disconnecting to that pawn via TryAssignPlayer() and UnassignPlayer().
+//
+public class PlayerControllerProxy : MonoBehaviour {
     private bool wasActive = false;
     public LongDogPlayerController pawn = null;
     public void ActivateControls() {

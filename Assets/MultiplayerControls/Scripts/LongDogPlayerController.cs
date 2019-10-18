@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 // Represents a head (or tail?) of the dog
 // All input is routed from LongDogController via the IPlayerAgent interface
-public class LongDogPlayerController : MonoBehaviour, IPlayerAgent {
+public class LongDogPlayerController : MonoBehaviour {
     private Rigidbody rigidbody;
     private Renderer renderer;
     public bool hasPlayerAssigned = false;
@@ -25,10 +25,6 @@ public class LongDogPlayerController : MonoBehaviour, IPlayerAgent {
     
     public void Move(Vector2 movement, float moveForce) {
         moveDir = movement;
-//        rigidbody.AddForce((Vector3.forward * movement.x + Vector3.right * movement.y) * 100.0f,
-//            ForceMode.VelocityChange);
-//        rigidbody.AddForce(new Vector3(movement.x, 0, movement.y) * Time.deltaTime * moveForce,
-//            ForceMode.Acceleration);
     }
 
     public void Jump() {
