@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 // Represents a head (or tail?) of the dog
 // All input is routed from LongDogController via the IPlayerAgent interface
-public class LongDogPlayerController : MonoBehaviour {
+public class LongDogPlayerController : MonoBehaviour, IPlayerController, IMultiplayerDevice {
     private Rigidbody rigidbody;
     private Renderer renderer;
     public bool hasPlayerAssigned = false;
@@ -22,15 +22,34 @@ public class LongDogPlayerController : MonoBehaviour {
     public void Update() {
         transform.Translate(new Vector3(moveDir.x, 0, moveDir.y) * Time.deltaTime * 10.0f);
     }
-    
-    public void Move(Vector2 movement, float moveForce) {
-        moveDir = movement;
+    public void UpdatePlayerMovement(Vector2 dir) {
+        moveDir = dir;
     }
-
-    public void Jump() {
+    public void OnJumpButtonPressed() {
         rigidbody.AddForce(Vector3.up * 80.0f,ForceMode.VelocityChange);
     }
+
+    // Unused input callbacks
+    public void UpdateCameraMovement(Vector2 dir) {}
+    public void OnInteractButtonPressed() {}
+    public void OnCancelButtonPressed() {}
+
+    public void OnGrabButtonPressed() {}
+
+    public void OnMenuButtonPressed() {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnControllerConnected(PlayerInput input) {
+        if (playerId != 0) UnassignPlayer();
+        TryAssignPlayer();
+    }
+    public void OnControllerDisconnected(PlayerInput input) {
+        UnassignPlayer();
+    }
     public bool TryAssignPlayer() {
+        if (renderer == null)         renderer = GetComponent<Renderer>();
+
         if (!hasPlayerAssigned) {
             hasPlayerAssigned = true;
             if (!assignedP1) {
@@ -63,10 +82,5 @@ public class LongDogPlayerController : MonoBehaviour {
         Debug.Log("unassigned player "+playerId+"!");
         playerId = 0;
         renderer.material.color = Color.white;
-    }
-    public void OnPlayerAdded(Gamepad gamepad) {
-    }
-
-    public void OnPlayerRemoved(Gamepad gamepad) {
     }
 }

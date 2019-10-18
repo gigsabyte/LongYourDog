@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 68319784}
   - component: {fileID: 68319788}
   - component: {fileID: 68319789}
+  - component: {fileID: 68319790}
   m_Layer: 0
   m_Name: DogHead
   m_TagString: Player
@@ -244,6 +245,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &68319790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68319783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fe3d364631194224a4185099ef5b741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+--- !u!1 &366199473 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8034973345206772818, guid: c26f9775ceb7e473589ca329023a7a6c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8034973344637933989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &366199474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366199473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbe8f525c3ee74af795e5d0c9ca911c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &509081711
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,6 +373,7 @@ GameObject:
   - component: {fileID: 511135754}
   - component: {fileID: 511135753}
   - component: {fileID: 511135757}
+  - component: {fileID: 511135758}
   m_Layer: 0
   m_Name: DogHead
   m_TagString: Player
@@ -451,6 +484,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &511135758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511135751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fe3d364631194224a4185099ef5b741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
 --- !u!1001 &952549096
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -641,9 +687,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a52a5c198a3e4fd4b77f4df3f8bfcc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agents: []
-  numGamepads: 0
-  moveForce: 10
 --- !u!4 &1839098386
 Transform:
   m_ObjectHideFlags: 0

@@ -130,7 +130,7 @@ public class InputControlMapping : IInputActionCollection
                 {
                     ""name"": ""left"",
                     ""id"": ""d7910cc8-90f3-462d-b261-151adf94f038"",
-                    ""path"": ""<SwitchProControllerHID>/buttonEast"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
