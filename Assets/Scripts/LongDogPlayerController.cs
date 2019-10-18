@@ -12,14 +12,19 @@ public class LongDogPlayerController : MonoBehaviour, IPlayerAgent {
     private static bool assignedP1 = false;
     private static bool assignedP2 = false;
     public int playerId = 0;
+    private Vector2 moveDir = Vector2.zero;
 
     public void Start() {
         rigidbody = GetComponent<Rigidbody>();
         renderer = GetComponent<Renderer>();
     }
+
+    public void Update() {
+        transform.Translate(new Vector3(moveDir.x, 0, moveDir.y) * Time.deltaTime * 10.0f);
+    }
     
     public void Move(Vector2 movement, float moveForce) {
-        transform.Translate(new Vector3(movement.x, 0, movement.y) * Time.deltaTime * 10.0f);
+        moveDir = movement;
 //        rigidbody.AddForce(new Vector3(movement.x, 0, movement.y) * Time.deltaTime * moveForce,
 //            ForceMode.Acceleration);
     }
@@ -40,12 +45,14 @@ public class LongDogPlayerController : MonoBehaviour, IPlayerAgent {
                 renderer.material.color = Color.magenta;
             }
             Debug.Log("assigned player "+playerId+"!");
+            moveDir = Vector2.zero;
             return true;
         }
         return false;
     }
 
     public void UnassignPlayer() {
+        moveDir = Vector2.zero;
         hasPlayerAssigned = false;
         if (playerId == 1) {
             assignedP1 = false; 
