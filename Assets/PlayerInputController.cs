@@ -46,6 +46,15 @@ public class PlayerInputController : MonoBehaviour {
 //        ) * Time.deltaTime * 2.0f);
     }
 
+    public void OnJump(InputValue value) {
+        if (!wasActive) {
+            ActivateControls();
+        }
+        if (pawn != null) {
+            pawn.Jump();
+        }
+    }
+    
     public void OnDeviceLost() {
         Debug.Log("device lost!");
         DeactivateControls();

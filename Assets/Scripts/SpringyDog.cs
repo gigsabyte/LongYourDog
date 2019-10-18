@@ -18,6 +18,7 @@ public class SpringyDog : MonoBehaviour {
         sf.connectedBody = target;
         sf.spring = springForce;
         sf.damper = springDamp;
+//        sf.minDistance = 2.0f;
     }
 
     private void SpawnSprings() {

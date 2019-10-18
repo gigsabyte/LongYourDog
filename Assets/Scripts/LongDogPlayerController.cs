@@ -25,10 +25,15 @@ public class LongDogPlayerController : MonoBehaviour, IPlayerAgent {
     
     public void Move(Vector2 movement, float moveForce) {
         moveDir = movement;
+//        rigidbody.AddForce((Vector3.forward * movement.x + Vector3.right * movement.y) * 100.0f,
+//            ForceMode.VelocityChange);
 //        rigidbody.AddForce(new Vector3(movement.x, 0, movement.y) * Time.deltaTime * moveForce,
 //            ForceMode.Acceleration);
     }
 
+    public void Jump() {
+        rigidbody.AddForce(Vector3.up * 80.0f,ForceMode.VelocityChange);
+    }
     public bool TryAssignPlayer() {
         if (!hasPlayerAssigned) {
             hasPlayerAssigned = true;
