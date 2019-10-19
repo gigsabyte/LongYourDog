@@ -10,7 +10,7 @@ public class Cube : MonoBehaviour{
 
 
     void Start(){
-        moveSpeed = 1f;
+        moveSpeed = 2f;
         inair = false;
         cube = GetComponent<Rigidbody>();
     }

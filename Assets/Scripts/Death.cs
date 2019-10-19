@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedPad : MonoBehaviour{
+public class Death : MonoBehaviour{
+    [SerializeField] private Transform player;
+    [SerializeField] private Transform respawn_point;
     // Start is called before the first frame update
     void Start(){
         
@@ -14,6 +16,6 @@ public class SpeedPad : MonoBehaviour{
     }
 
     private void OnTriggerEnter(Collider other) {
-        other.attachedRigidbody.AddForce(0f, 0f, 300f);
+        player.transform.position = respawn_point.transform.position;
     }
 }
