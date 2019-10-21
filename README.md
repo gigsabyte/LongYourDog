@@ -13,6 +13,7 @@ To clone this project:
     level-geometry-prototype  (Erwang)
     interaction-prototype     (Jack)
     movement-prototype        (Seiji)
+    world-map                 (Casey)
   
 ### Only work in your respective unity scene and branch!
 
