@@ -20,6 +20,7 @@ To clone this project:
     LevelGeometryTestbed (Erwang)
     InteractionMechnicsTestbed (Jack)
     MovementTestbed (Seiji)
+    World-Map (Casey)
   
 Any work in any other scene WILL be nuked when we merge.
 
