@@ -9,12 +9,6 @@
 		_Ambient("Ambient Light", Color) = (1, 1, 1, 1)
 
 		_Color ("Color", Color) = (1, 1, 1, 1)
-		_SpecularColor("Specular Color", Color) = (0.9, 0.9, 0.9, 1)
-		_SpecExp("Glossiness", Range(2, 128)) = 32
-
-		_RimLightColor("Rim Light Color", Color) = (1, 1, 1, 1)
-		_RimLightAmt("Rim Light Amount", Range(0, 1)) = 0.7
-		_RimBlending("Rim Blending", Range(0, 1)) = 0.1
 
     }
     SubShader
@@ -63,12 +57,6 @@
 
 			float4 _Ambient;
 			float4 _Color;
-			float4 _SpecularColor;
-			float _SpecExp;
-
-			float4 _RimLightColor;
-			float _RimLightAmt;
-			float _RimBlending;
 
             v2f vert (appdata v)
             {
