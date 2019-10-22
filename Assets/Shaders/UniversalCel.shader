@@ -105,33 +105,10 @@
 
 				float4 Kd = intensity * _LightColor0;
 
-				// calc spec Light
-				//float RdotV = max(0, dot(reflect(_WorldSpaceLightPos0, normal), viewDir));
-				float3 halfVector = normalize(_WorldSpaceLightPos0 + viewDir);
-				float NdotH = dot(normal, halfVector);
-
-				float specIntensity = pow(NdotH * intensity, _SpecExp * _SpecExp);
-
-				specIntensity = smoothstep(0.005, 0.01, specIntensity);
-
-				float4 Ks = specIntensity * _SpecularColor;
-
-				// calc rim Light
-				float rimDot = 1 - dot(viewDir, normal);
-
-				float rimIntensity = rimDot * pow(NdotL, _RimBlending);
-				rimIntensity = smoothstep(_RimLightAmt - 0.01, _RimLightAmt + 0.01, rimIntensity);
-				//float rimIntensity = rimDot * pow(NdotL, _RimBlending);
-				//rimIntensity = smoothstep(_RimLightAmt - 0.01, _RimLightAmt + 0.01, _RimBlending);
-				//float4 rim = rimIntensity * _RimColor;
-				float4 Kr = rimIntensity * _RimLightColor;
-
                 // sample the texture
-                fixed4 tex = tex2D(_MainTex, i.uv);
+                fixed4 tex = tex2D(_MainTex, i.uv);		
 
-		
-
-				return fixed4((Ka + Kd + Ks + Kr) * _Color * tex);
+				return fixed4((Ka + Kd) * _Color * tex);
             }
             ENDCG
         }
