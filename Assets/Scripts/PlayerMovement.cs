@@ -65,8 +65,30 @@ public class PlayerMovement : MonoBehaviour, IPlayerController {
     }
     public void OnGrabButtonReleased() {
         grabButtonPressed = false;
+        if (GetComponent<HingeJoint>()!= null){
+        	HingeJoint hjOut = GetComponent<HingeJoint>();
+           	Destroy(hjOut);
+/////////////////////////////////////           	/*Restore Normal Movement*/
+        }
     }
 
     public void OnMenuButtonPressed() {
+    }
+
+    //Swinging trigger
+    void OnTriggerStay(Collider other) 
+    {
+        if (other.gameObject.CompareTag ("Hook"))
+        {
+        	if (GetComponent<HingeJoint>()== null){
+        		if(grabButtonPressed){
+/////////////////////////////////////        		 /*Disable Normal Movement*/
+	            	HingeJoint hj = gameObject.AddComponent<HingeJoint>() as HingeJoint;
+	            	hj.anchor = transform.InverseTransformPoint(other.gameObject.transform.position);
+	            	hj.axis = (other.gameObject.GetComponent<HookData>().hookAxis);
+	            	Debug.Log(other.gameObject.GetComponent<HookData>().hookAxis);
+            	}
+            }
+        }
     }
 }
