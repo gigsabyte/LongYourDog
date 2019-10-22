@@ -10,7 +10,7 @@ public class Cube : MonoBehaviour{
 
 
     void Start(){
-        moveSpeed = 1f;
+        moveSpeed = 2f;
         inair = false;
         cube = GetComponent<Rigidbody>();
     }
@@ -30,7 +30,7 @@ public class Cube : MonoBehaviour{
     }
 
     private void OnCollisionEnter(Collision collision) {
-        collision.gameObject.CompareTag("Plane");
+       // collision.gameObject.CompareTag("Plane");
         collision.gameObject.CompareTag("SpeedPad");
         inair = false;
     }
