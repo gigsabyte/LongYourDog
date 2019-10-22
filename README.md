@@ -13,12 +13,14 @@ To clone this project:
     level-geometry-prototype  (Erwang)
     interaction-prototype     (Jack)
     movement-prototype        (Seiji)
+    world-map                 (Casey)
   
 ### Only work in your respective unity scene and branch!
 
     LevelGeometryTestbed (Erwang)
     InteractionMechnicsTestbed (Jack)
     MovementTestbed (Seiji)
+    World-Map (Casey)
   
 Any work in any other scene WILL be nuked when we merge.
 
