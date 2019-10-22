@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour, IPlayerController {
     public float moveSpeed = 3.5f; // m/s
     public float turnSpeed = 180.0f; // degrees / sec
 
+    // TODO: use this for swinging logic
+    public bool grabButtonPressed = false;
+
     // Update is called once per frame
     void Update() {
         transform.Translate(
@@ -48,18 +51,22 @@ public class PlayerMovement : MonoBehaviour, IPlayerController {
     }
 
     public void OnInteractButtonPressed() {
-//        throw new System.NotImplementedException();
+        // TODO: replace this with interaction code (should open dialog)
+        Debug.Log("Interact pressed!");
     }
 
     public void OnCancelButtonPressed() {
-//        throw new System.NotImplementedException();
+        // TODO: can use this for interaction code (could cancel dialog)
+        Debug.Log("Cancel pressed!");
     }
 
     public void OnGrabButtonPressed() {
-//        throw new System.NotImplementedException();
+        grabButtonPressed = true;
+    }
+    public void OnGrabButtonReleased() {
+        grabButtonPressed = false;
     }
 
     public void OnMenuButtonPressed() {
-//        throw new System.NotImplementedException();
     }
 }

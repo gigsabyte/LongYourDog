@@ -34,19 +34,27 @@ public class PlayerControlsAdapter : MonoBehaviour {
         // when this stops changing and 0, 0 should be sent
         target?.UpdateCameraMovement(pressed ? value.Get<Vector2>() : Vector2.zero);
     }
-    public void OnJump() {
-        target?.OnJumpButtonPressed();
+    public void OnJump(InputValue value) {
+        if (value.isPressed)
+            target?.OnJumpButtonPressed();
     }
-    public void OnInteract() {
-        target?.OnInteractButtonPressed();
+    public void OnInteract(InputValue value) {
+        if (value.isPressed)
+            target?.OnInteractButtonPressed();
     }
-    public void OnCancel() {
-        target?.OnCancelButtonPressed();
+    public void OnCancel(InputValue value) {
+        if (value.isPressed)
+            target?.OnCancelButtonPressed();
     }
-    public void OnGrab() {
-        target?.OnGrabButtonPressed();
+    public void OnGrab(InputValue value) {
+        if (value.isPressed) {
+            target?.OnGrabButtonPressed();
+        } else {
+            target?.OnGrabButtonReleased();
+        }
     }
-    public void OnMenuOpened() {
-        target?.OnMenuButtonPressed();
+    public void OnMenuOpened(InputValue value) {
+        if (value.isPressed)
+            target?.OnMenuButtonPressed();
     }
 }

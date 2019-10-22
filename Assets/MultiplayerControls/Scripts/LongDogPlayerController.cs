@@ -35,6 +35,7 @@ public class LongDogPlayerController : MonoBehaviour, IPlayerController, IMultip
     public void OnCancelButtonPressed() {}
 
     public void OnGrabButtonPressed() {}
+    public void OnGrabButtonReleased() {}
 
     public void OnMenuButtonPressed() {
         throw new System.NotImplementedException();
