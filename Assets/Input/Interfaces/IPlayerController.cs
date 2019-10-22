@@ -34,6 +34,9 @@ public interface IPlayerController {
     // (keyboard: right mouse button?)
     void OnGrabButtonPressed();
 
+    // called when grab is released
+    void OnGrabButtonReleased();
+
     // called when menu button pressed (not necessary, but added in case we want to add this)
     // (gamepad: start (or select?) button)
     // (keyboard: esc key)

@@ -21,6 +21,9 @@ public class DebugPlayerController : MonoBehaviour, IPlayerController {
     public void OnGrabButtonPressed() {
         Debug.Log("Player grab at "+Time.time);
     }
+    public void OnGrabButtonReleased() {
+        Debug.Log("Player grab ended at "+Time.time);
+    }
     public void OnMenuButtonPressed() {
         Debug.Log("Player open menu at "+Time.time);
     }
