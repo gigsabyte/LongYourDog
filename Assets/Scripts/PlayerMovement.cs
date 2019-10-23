@@ -16,16 +16,18 @@ public class PlayerMovement : MonoBehaviour, IPlayerController {
 
     // TODO: use this for swinging logic
     public bool grabButtonPressed = false;
+    public bool enableMovement = true;
 
     // Update is called once per frame
     void Update() {
-        transform.Translate(
-            transform.rotation * (
-                Vector3.forward * moveDir.y +
-                Vector3.right * moveDir.x
-            ) * moveSpeed * Time.deltaTime);
-        transform.Rotate(Vector3.up, turnDir.x * turnSpeed * Time.deltaTime);
-
+        if (enableMovement) {
+            transform.Translate(
+                transform.rotation * (
+                    Vector3.forward * moveDir.y +
+                    Vector3.right * moveDir.x
+                ) * moveSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.up, turnDir.x * turnSpeed * Time.deltaTime);
+        }
     }
 
     private Vector2 moveDir = Vector2.zero;
@@ -33,6 +35,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerController {
     private bool jumped = false;
 
     public void Jump() {
+        if (!enableMovement) return;
 //        if (!jumped) {
             jumped = true;
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
@@ -62,9 +65,11 @@ public class PlayerMovement : MonoBehaviour, IPlayerController {
 
     public void OnGrabButtonPressed() {
         grabButtonPressed = true;
+        enableMovement = false;
     }
     public void OnGrabButtonReleased() {
         grabButtonPressed = false;
+        enableMovement = true;
         if (GetComponent<HingeJoint>()!= null){
         	HingeJoint hjOut = GetComponent<HingeJoint>();
            	Destroy(hjOut);
