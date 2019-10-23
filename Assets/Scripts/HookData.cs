@@ -11,14 +11,25 @@ public class HookData : MonoBehaviour
     void Start()
     {
     	GetComponent<Transform>().localScale = new Vector3(radius,radius,radius);
-        switch (rotationAxis)
-        {
-        	case RotationAxis.X_axis:
-        		hookAxis = Vector3.right;
-        		break;
-        	case RotationAxis.Z_axis:
-        		hookAxis = Vector3.forward;
-        		break;
+
+        var capsule = GetComponent<CapsuleCollider>();
+        if (capsule != null) {
+	        // cylinder shape: use cylinder's axis for rotation!
+
+	        var axis = transform.rotation * Vector3.up;
+	        radius = capsule.radius * Mathf.Max(transform.localScale.x, transform.localScale.z);
+	        hookAxis = axis;
+        }
+        else {
+	        switch (rotationAxis)
+	        {
+		        case RotationAxis.X_axis:
+			        hookAxis = Vector3.right;
+			        break;
+		        case RotationAxis.Z_axis:
+			        hookAxis = Vector3.forward;
+			        break;
+	        }
         }
     }
 }
