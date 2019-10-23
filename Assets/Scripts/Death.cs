@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Death : MonoBehaviour{
-    [SerializeField] private Transform player;
-    [SerializeField] private Transform respawn_point;
+    [SerializeField] private Rigidbody player;
+    [SerializeField] private Transform respawnPoint;
     // Start is called before the first frame update
     void Start(){
         
@@ -16,6 +16,13 @@ public class Death : MonoBehaviour{
     }
 
     private void OnTriggerEnter(Collider other) {
-        player.transform.position = respawn_point.transform.position;
+        if (other.tag == "Player") StartCoroutine(Respawn());
+    }
+
+    IEnumerator Respawn() {
+        player.velocity = Vector3.zero;
+        yield return new WaitForSeconds(1);
+        player.transform.position = respawnPoint.transform.position;
     }
 }
+

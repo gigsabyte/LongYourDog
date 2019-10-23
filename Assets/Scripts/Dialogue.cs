@@ -22,7 +22,7 @@ public class Dialogue : MonoBehaviour{
     }
 
     IEnumerator Wait_for_sec() {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(28);
         Destroy(text);
     }
 }
