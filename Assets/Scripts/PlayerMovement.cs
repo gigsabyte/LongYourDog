@@ -8,7 +8,12 @@ public class PlayerMovement : MonoBehaviour, IPlayerController {
     // Start is called before the first frame update
     void Start() {
         rb = GetComponent<Rigidbody>();
+        if (camera == null) {
+            camera = Camera.current.GetComponent<FollowCamera>();
+        }
     }
+
+    public FollowCamera camera;
 
     public float jumpSpeed = 10f;// m/s
     public float moveSpeed = 3.5f; // m/s
@@ -18,15 +23,37 @@ public class PlayerMovement : MonoBehaviour, IPlayerController {
     public bool grabButtonPressed = false;
     public bool enableMovement = true;
 
+    public AnimationCurve zoomAngleCurve;
+    public float minZoomDist = 1.0f;
+    public float maxZoomDist = 20.0f;
+    public float zoomSpeed = 1.0f;
+    public float zoomDist = 10.0f;
+
     // Update is called once per frame
     void Update() {
         if (enableMovement) {
             transform.Translate(
-                transform.rotation * (
+                (
                     Vector3.forward * moveDir.y +
                     Vector3.right * moveDir.x
                 ) * moveSpeed * Time.deltaTime);
             transform.Rotate(Vector3.up, turnDir.x * turnSpeed * Time.deltaTime);
+            zoomDist = Mathf.Clamp(
+                zoomDist - turnDir.y * zoomSpeed * Time.deltaTime,
+                minZoomDist,
+                maxZoomDist
+            );
+        }
+        if (camera) {
+            var pitchAngle = zoomAngleCurve.Evaluate((zoomDist - minZoomDist) / (maxZoomDist - minZoomDist));
+            var offset = Vector3.up * zoomDist * Mathf.Sin(pitchAngle)
+                         + Vector3.back * zoomDist * Mathf.Cos(pitchAngle);
+
+            var rotationAngle = transform.rotation.eulerAngles.y;
+            var rotatedOffset = Quaternion.AngleAxis(rotationAngle, Vector3.up) * offset;
+            camera.SetTargetPos(
+                transform.position + rotatedOffset
+            );
         }
     }
 
