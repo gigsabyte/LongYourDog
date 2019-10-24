@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour, IPlayerController {
         rb = GetComponent<Rigidbody>();
     }
 
+    public FollowCamera camera;
+
     public float jumpSpeed = 10f;// m/s
     public float moveSpeed = 3.5f; // m/s
     public float turnSpeed = 180.0f; // degrees / sec
@@ -17,6 +19,12 @@ public class PlayerMovement : MonoBehaviour, IPlayerController {
     // TODO: use this for swinging logic
     public bool grabButtonPressed = false;
     public bool enableMovement = true;
+
+    public AnimationCurve zoomAngleCurve;
+    public float minZoomDist = 1.0f;
+    public float maxZoomDist = 20.0f;
+    public float zoomSpeed = 1.0f;
+    public float zoomDist = 10.0f;
 
     // Update is called once per frame
     void Update() {
@@ -27,6 +35,20 @@ public class PlayerMovement : MonoBehaviour, IPlayerController {
                     Vector3.right * moveDir.x
                 ) * moveSpeed * Time.deltaTime);
             transform.Rotate(Vector3.up, turnDir.x * turnSpeed * Time.deltaTime);
+            zoomDist = Mathf.Clamp(
+                zoomDist + turnDir.y * zoomSpeed * Time.deltaTime,
+                minZoomDist,
+                maxZoomDist
+            );
+        }
+        if (camera) {
+            var angle = zoomAngleCurve.Evaluate((zoomDist - minZoomDist) / (maxZoomDist - minZoomDist));
+            var offset = Vector3.up * zoomDist * Mathf.Sin(angle)
+                         + Vector3.back * zoomDist * Mathf.Cos(angle);
+            camera.SetTargetPos(
+                transform.position +
+                transform.rotation * offset
+            );
         }
     }
 
