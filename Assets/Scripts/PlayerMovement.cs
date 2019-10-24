@@ -45,12 +45,14 @@ public class PlayerMovement : MonoBehaviour, IPlayerController {
             );
         }
         if (camera) {
-            var angle = zoomAngleCurve.Evaluate((zoomDist - minZoomDist) / (maxZoomDist - minZoomDist));
-            var offset = Vector3.up * zoomDist * Mathf.Sin(angle)
-                         + Vector3.back * zoomDist * Mathf.Cos(angle);
+            var pitchAngle = zoomAngleCurve.Evaluate((zoomDist - minZoomDist) / (maxZoomDist - minZoomDist));
+            var offset = Vector3.up * zoomDist * Mathf.Sin(pitchAngle)
+                         + Vector3.back * zoomDist * Mathf.Cos(pitchAngle);
+
+            var rotationAngle = transform.rotation.eulerAngles.y;
+            var rotatedOffset = Quaternion.AngleAxis(rotationAngle, Vector3.up) * offset;
             camera.SetTargetPos(
-                transform.position +
-                transform.rotation * offset
+                transform.position + rotatedOffset
             );
         }
     }
