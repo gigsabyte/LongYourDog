@@ -568,44 +568,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 691146243732970322, guid: 336439d45eaa74384b90d659ee0798f1,
         type: 3}
-      propertyPath: zoomAngleCurve.m_Curve.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 691146243732970322, guid: 336439d45eaa74384b90d659ee0798f1,
-        type: 3}
       propertyPath: camera
       value: 
       objectReference: {fileID: 1565106035}
-    - target: {fileID: 691146243732970322, guid: 336439d45eaa74384b90d659ee0798f1,
-        type: 3}
-      propertyPath: zoomAngleCurve.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 691146243732970322, guid: 336439d45eaa74384b90d659ee0798f1,
-        type: 3}
-      propertyPath: zoomAngleCurve.m_Curve.Array.data[1].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 691146243732970322, guid: 336439d45eaa74384b90d659ee0798f1,
-        type: 3}
-      propertyPath: zoomAngleCurve.m_Curve.Array.data[1].inSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 691146243732970322, guid: 336439d45eaa74384b90d659ee0798f1,
-        type: 3}
-      propertyPath: zoomAngleCurve.m_Curve.Array.data[1].outSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 691146243732970322, guid: 336439d45eaa74384b90d659ee0798f1,
-        type: 3}
-      propertyPath: zoomSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 691146243732970322, guid: 336439d45eaa74384b90d659ee0798f1,
-        type: 3}
-      propertyPath: minZoomDist
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 336439d45eaa74384b90d659ee0798f1, type: 3}
 --- !u!1001 &3893407898668590142
