@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerController {
     void Update() {
         if (enableMovement) {
             transform.Translate(
-                transform.rotation * (
+                (
                     Vector3.forward * moveDir.y +
                     Vector3.right * moveDir.x
                 ) * moveSpeed * Time.deltaTime);
