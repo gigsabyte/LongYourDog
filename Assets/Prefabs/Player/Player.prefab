@@ -183,7 +183,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  minZoomDist: 10
+  minZoomDist: 2
   maxZoomDist: 20
   zoomSpeed: 10
   zoomDist: 1

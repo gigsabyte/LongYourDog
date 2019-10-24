@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour, IPlayerController {
     // Start is called before the first frame update
     void Start() {
         rb = GetComponent<Rigidbody>();
+        if (camera == null) {
+            camera = Camera.current.GetComponent<FollowCamera>();
+        }
     }
 
     public FollowCamera camera;
@@ -36,7 +39,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerController {
                 ) * moveSpeed * Time.deltaTime);
             transform.Rotate(Vector3.up, turnDir.x * turnSpeed * Time.deltaTime);
             zoomDist = Mathf.Clamp(
-                zoomDist + turnDir.y * zoomSpeed * Time.deltaTime,
+                zoomDist - turnDir.y * zoomSpeed * Time.deltaTime,
                 minZoomDist,
                 maxZoomDist
             );
